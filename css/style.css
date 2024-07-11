@@ -159,7 +159,9 @@ header nav a:hover {
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 80px;
+    margin-bottom: 50px;
     text-align: center;
+    
 }
 .stats-item{
     padding: 20px;
@@ -171,4 +173,31 @@ header nav a:hover {
 .stats-item:hover{
     color: #fff;
     background-color: #201F40;
+}
+
+
+.pack{
+    background-color:  #201F40;
+    color: #fff;
+    position: relative;
+    width: 250px;
+    height: 320px;
+    text-align: center;
+    padding-top: 50px;
+    border-radius:10px ;
+
+}
+
+.packs-details h2{
+    text-align: center;
+    font-size: 35px;
+}
+.packs{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+.pack:hover{
+    background-color:#8e1f38;
+    color: #fff;
 }
