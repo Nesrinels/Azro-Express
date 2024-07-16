@@ -8,19 +8,101 @@
 }
 
 body {
-    min-height: 1000vh;
+    /* min-height: 1000vh; */
+    max-width: fit-content;
+    
 }
 
 header {
-    z-index: 999;
-    /* position: absolute; */
+    z-index: 100;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 80em;
+    width: 100%;
     padding: 30px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+
+#check{
+    display: none;
+}
+
+.icons{
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #201F40;
+    cursor: pointer;
+    display: none;
+}
+
+@media  (max-width: 992px) {
+    header{
+        padding: 1.3rem 5%;
+    }
+}
+
+@media  (max-width: 768px) {
+    .icons{
+        display: inline-flex;
+    }
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+    .icons #close-icon{
+        display: none;
+    }
+
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+
+
+    nav{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        /* height: 23.5rem; */
+        height: 0;
+        background: rgba(0, 0, 0, .1);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        overflow: hidden;
+        transition: .3s ease;
+        
+        
+    }
+    #check:checked~ nav {
+        height: 23.5rem;
+    }
+    header nav a{
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        display: block;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: .3s ease;
+    }
+    #check:checked~nav a{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 header .logo {
@@ -38,11 +120,14 @@ header .logo {
     width: 30px;
 }
 
-header nav {
+
+
+/* header nav{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
+
 
 header nav a {
     color: #201F40;
@@ -60,7 +145,9 @@ header nav a:hover {
     background: linear-gradient(to bottom, #201F40, #F21616);
     color: #fff;
 }
-
+.tracking-input{
+    margin-right: 100px;
+}
 .tracking-input h2 {
     color: #201F40;
     text-align: center;
@@ -88,7 +175,7 @@ header nav a:hover {
 }
 
 .search-btn:hover {
-    background-color: #F55050;
+    background-color: #f55050;
     color: #fff;
 }
 
@@ -99,11 +186,9 @@ header nav a:hover {
 }
 
 .tracking-img img {
-    width: 800px;
+    width: 700px;
     height: 600px;
-    float: right;
 }
-
 .landing-text h1 {
     font-family: "Poppins", sans-serif;
     color: #201F40;
@@ -128,13 +213,13 @@ header nav a:hover {
 .landing-img img {
     margin-top: 30px;
     margin-left: 30px;
-    height: 600px;
-    width: 800px;
+    height: 500px;
+    width: 500px;
 }
 
 .landing-text {
     margin-top: 200px;
-    margin-right: 50px;
+    /* margin-right: 200px; */
 }
 
 .sign-up {
@@ -200,4 +285,159 @@ header nav a:hover {
 .pack:hover{
     background-color:#8e1f38;
     color: #fff;
+}
+
+.delivery-text h1{
+    font-family: "Poppins", sans-serif;
+    color: #201F40;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 35px;
+}
+.delivery-text p{
+    font-family: "Poppins", sans-serif;
+    color: #201F40;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.delivery-btn{
+    background-color: #201F40;
+    color: #fff;
+    border-radius: 10px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    text-transform: uppercase;
+
+}
+
+.delivery-btn:hover {
+    background-color: #F55050;
+    color: #fff;
+}
+.delivery-img {
+    text-align: center;
+}
+.delivery-text{
+    text-align: center;
+}
+.download{
+    display: flex;
+}
+.download-text h1{
+    font-family: "Poppins", sans-serif;
+    color: #201F40;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 35px;
+}
+
+.download-text h3{
+    font-family: "Poppins", sans-serif;
+    color: #201F40;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 25px;
+}
+.download-text p{
+    font-family: "Poppins", sans-serif;
+    color: #201F40;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.download-text {
+    margin-top: 120px;
+text-align: center;
+}
+footer {
+    position: relative;
+    width: 100%;
+    background: #f55050;
+    min-height: 100px;
+    padding: 20px 50px;
+    justify-content: center;
+    align-items: center;
+}
+footer .social_icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+footer .social_icon li{
+    list-style: none;
+}
+footer .social_icon li a{
+    font-size: 2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+footer .social_icon li a:hover{
+    transform: translateY(-10px);
+}
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+footer .wave{
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background:  url(../Assets/footer/wave.png);
+    background-size: 1000px 100px;
+
+}
+footer .wave#wave1{
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 4s linear infinite;
+}
+footer .wave#wave2{
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave_02 4s linear infinite;
+}
+footer .wave#wave3{
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWave 3s linear infinite;
+}
+footer .wave#wave4{
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animateWave_02 3s linear infinite;
+}
+@keyframes animateWave{
+    0%{
+        background-position-x:1000px ;
+    }
+    100%{
+        background-position-x:0px ;
+    }
+}
+@keyframes animateWave_02{
+    0%{
+        background-position-x:0px ;
+    }
+    100%{
+        background-position-x: 1000px ;
+    }
 }
